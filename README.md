@@ -8,10 +8,10 @@ Please link to a python git repo that performs filtering on time-series data and
 
 2. create JSON file and JSON schema
     A pharmacy daily sales from 01-01-1998 to 01-01-2018. The sales unit is kNZD which means thousands NZD per day.
-    
+
     {
         "date" : "01-01-1998",
-        "sales" : 0-6.6
+        "sale" : 0-6.6
     }
 
 3. reads JSON by python
