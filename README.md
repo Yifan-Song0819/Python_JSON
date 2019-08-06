@@ -16,7 +16,21 @@ Please link to a python git repo that performs filtering on time-series data and
 
 3. reads JSON by python
 
+    import json then open and load
+
+3'. filtering the data (pre-process the data)
+
+    (1) there are some rows which have the same date. we keep the large sale's one
+
+    (2) there are some rows with both values are null, we need to delete the data
+
 4. handle the json format data to get mean, average, minimum, maximum, standard deviation.....
+
+    (1) if some days are missing, we assume the pharmacy was closed for some reason (like holidays)
+
+        so we need to handle this part when doing calculation
+
+    (2)
 
 5. how to show the plots?
 
