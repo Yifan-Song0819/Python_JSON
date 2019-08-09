@@ -33,6 +33,7 @@ def get_sale(input):
         res.append(row["sale"])
     return res
 
+
 """
 get no duplicate (keep the larger sale)
 
@@ -60,6 +61,26 @@ def to_oop(date, sale):
     print("final length is: ", len(final_row_list))
     return final_row_list
 
+def plot_all(rows_ob_list):
+    sales_list = []
+    for i in range(0, len(rows_ob_list)):
+        sales_list.append(rows_ob_list[i].sale)
+
+    dates_list = []
+    for i in range(0, len(rows_ob_list)):
+        dates_list.append(rows_ob_list[i].date)
+
+    plt.plot(sales_list)
+    plt.ylabel('sales')
+    plt.xlabel("x1")
+
+
+    # plt1.plot(dates_list)
+    # plt1.ylabel('years')
+    # plt1.xlabel("x2")
+    plt1.show()
+
+
 def main():
     with open('sales.json') as json_file:
         data = json.load(json_file)
@@ -70,6 +91,6 @@ def main():
     sale_list = get_sale(data_no_null)
     # print(len(date_list), len(sale_list))
     res = to_oop(date_list, sale_list) # all rows ob now
-
+    plot_all(res)
 
 main()
