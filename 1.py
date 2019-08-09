@@ -1,5 +1,7 @@
 import json
+import matplotlib.pyplot as plt
 from Row import Row
+
 
 """
 remove_null is used to delete the null value
@@ -68,5 +70,6 @@ def main():
     sale_list = get_sale(data_no_null)
     # print(len(date_list), len(sale_list))
     res = to_oop(date_list, sale_list) # all rows ob now
+
 
 main()
