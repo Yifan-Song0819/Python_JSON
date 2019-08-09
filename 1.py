@@ -50,7 +50,7 @@ def to_oop(date, sale):
         else:
             if final_sale_list[final_date_list.index(date[i])] < sale[i]:
                 final_sale_list[final_date_list.index(date[i])] = sale[i]
-    print("no dull length is: ", len(final_date_list))
+    # print("no dull length is: ", len(final_date_list))
     final_row_list = []
     for i in range(0, len(final_date_list)):
         a_row = Row(final_date_list[i], final_sale_list[i])  # initialize rows!
@@ -63,11 +63,10 @@ def main():
         data = json.load(json_file)
         # print(data)  # here the data is a list and empty data must be "null" otherwise error
     data_no_null = remove_null(data)
-    print("no null", len(data_no_null))
+    # print("no null", len(data_no_null))
     date_list = get_date(data_no_null)
     sale_list = get_sale(data_no_null)
     # print(len(date_list), len(sale_list))
     res = to_oop(date_list, sale_list) # all rows ob now
-
 
 main()
