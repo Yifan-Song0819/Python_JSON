@@ -15,6 +15,7 @@ def remove_null(data):
 
 """
 list with only date
+dealing with data from json not row obs
 """
 
 def get_date(input):
@@ -25,6 +26,7 @@ def get_date(input):
 
 """
 list with only sale
+dealing with data from json not row obs
 """
 
 def get_sale(input):
@@ -61,21 +63,49 @@ def to_oop(date, sale):
     print("final length is: ", len(final_row_list))
     return final_row_list
 
-def plot_all(rows_ob_list):
+"""
+These two are used to list sale and date from the obs_list
+"""
+
+def sales_from_ob(ob_list):
     sales_list = []
-    for i in range(0, len(rows_ob_list)):
-        sales_list.append(rows_ob_list[i].sale)
+    for i in range(0, len(ob_list)):
+        sales_list.append(ob_list[i].sale)
+    return sales_list
 
+def dates_from_ob(ob_list):
     dates_list = []
-    for i in range(0, len(rows_ob_list)):
-        dates_list.append(rows_ob_list[i].date)
+    for i in range(0, len(ob_list)):
+        dates_list.append(ob_list[i].date)
+    return dates_list
 
+"""
+just a plot test
+"""
+def plot_test(rows_ob_list):
+    sales_list = sales_from_ob(rows_ob_list)
+    dates_list = dates_from_ob(rows_ob_list)
 
     plt.plot(sales_list)
-    plt.suptitle("Year")
+    plt.suptitle("Every day sales")
     plt.ylabel('Thousands of NZDs')
     plt.xlabel("x1")
     plt.show()
+
+def plot_2016(rows_ob_list):
+    sales_list = sales_from_ob(rows_ob_list)
+    dates_list = dates_from_ob(rows_ob_list)
+    # print(len(sales_list) == len(dates_list))
+    length = len(dates_list)
+    sale_2016 = []
+    date_2016 = []
+
+    for i in range(0, length):
+        if "2016" in dates_list[i]:
+            date_2016.append(dates_list[i])
+            sale_2016.append(sales_list[i])
+    # print(sale_2016)
+    # print(date_2016)
 
 
 def main():
@@ -89,6 +119,7 @@ def main():
     # print(len(date_list), len(sale_list))
     res = to_oop(date_list, sale_list) # all rows ob now
 
-    plot_all(res)
+    # plot_test(res)
+    plot_2016(res)
 
 main()

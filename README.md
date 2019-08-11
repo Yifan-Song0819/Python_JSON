@@ -7,7 +7,6 @@ The sales.json describes daily sales from a local pharmacy from 01/01/2016 to 31
 There are 1000 piece of datas, but there also exists duplicate dates and null data. Therefore, these data
 
 would be removed. Only 657 data are left when plotting the data. That makes sense in three years. We remove weekends and
-
 public holidays, there are only around 200+ days every year.
 
 
