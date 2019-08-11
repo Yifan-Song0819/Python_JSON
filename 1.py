@@ -70,14 +70,12 @@ def plot_all(rows_ob_list):
     for i in range(0, len(rows_ob_list)):
         dates_list.append(rows_ob_list[i].date)
 
-    plt.plot(sales_list)
-    plt.ylabel('sales')
-    plt.xlabel("x1")
 
-    # plt1.plot(dates_list)
-    # plt1.ylabel('years')
-    # plt1.xlabel("x2")
-    plt1.show()
+    plt.plot(sales_list)
+    plt.suptitle("Year")
+    plt.ylabel('Thousands of NZDs')
+    plt.xlabel("x1")
+    plt.show()
 
 
 def main():
@@ -90,6 +88,7 @@ def main():
     sale_list = get_sale(data_no_null)
     # print(len(date_list), len(sale_list))
     res = to_oop(date_list, sale_list) # all rows ob now
+
     plot_all(res)
 
 main()

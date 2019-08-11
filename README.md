@@ -1,4 +1,18 @@
 # Python_JSON
+
+I randomly create sales.json file.
+
+The sales.json describes daily sales from a local pharmacy from 01/01/2016 to 31/12/2018.
+
+There are 1000 piece of datas, but there also exists duplicate dates and null data. Therefore, these data
+
+would be removed. Only 657 data are left when plotting the data. That makes sense in three years. We remove weekends and
+
+public holidays, there are only around 200+ days every year.
+
+
+
+
 Please link to a python git repo that performs filtering on time-series data and outputs a plot of the filtered and unfiltered data, the minimum, mean and average of the data. Include a JSON schema for the data model in the source code. Show images of the above plots.
 
 
