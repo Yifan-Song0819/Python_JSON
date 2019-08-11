@@ -74,7 +74,6 @@ def plot_all(rows_ob_list):
     plt.ylabel('sales')
     plt.xlabel("x1")
 
-
     # plt1.plot(dates_list)
     # plt1.ylabel('years')
     # plt1.xlabel("x2")

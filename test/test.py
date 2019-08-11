@@ -18,3 +18,19 @@ plt.gca().xaxis.set_major_locator(mdates.DayLocator())
 plt.plot(x,y)
 plt.gcf().autofmt_xdate()
 plt.show()
+
+
+
+"""
+the entire data
+
+average:
+    (1) just pick up average data yearly, check the date in the row ob list
+        x: year and y: the sales
+    (2)
+
+
+minimum: show the minimum month in every year
+maximum: show the maximum month in every year
+
+"""
