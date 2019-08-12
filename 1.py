@@ -95,20 +95,22 @@ def plot_test(rows_ob_list):
     plt.show()
 
 def plot_2016(rows_ob_list):
-    sales_list = sales_from_ob(rows_ob_list)
-    dates_list = dates_from_ob(rows_ob_list)
-    # print(len(sales_list) == len(dates_list))
-    length = len(dates_list)
-    sale_2016 = []
-    date_2016 = []
-
-    for i in range(0, length):
-        if "2016" in dates_list[i]:
-            date_2016.append(dates_list[i])
-            sale_2016.append(sales_list[i])
-    
+    # sales_list = sales_from_ob(rows_ob_list)
+    # dates_list = dates_from_ob(rows_ob_list)
+    # # print(len(sales_list) == len(dates_list))
+    # length = len(dates_list)
+    # sale_2016 = []
+    # date_2016 = []
+    #
+    # for i in range(0, length):
+    #     if "2016" in dates_list[i]:
+    #         date_2016.append(dates_list[i])
+    #         sale_2016.append(sales_list[i])
+    #
     # print(sale_2016)
     # print(date_2016)
+
+    
 
 
 def main():
