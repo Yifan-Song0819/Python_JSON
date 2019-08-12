@@ -3,16 +3,8 @@ import datetime
 import matplotlib.pyplot as plt
 import matplotlib.dates as the_dates
 from Row import Row
+import pandas as pd
 import numpy as np
-
-"""
-75.15
-73.52999999999997
-58.059999999999995
-"""
-
-
-
 
 
 """
@@ -139,21 +131,10 @@ def get_monthly_sale(rows_ob_list, target_year):
 
     for i in range(0, len(month_list)):
         month_list[i] = round(month_list[i], 2)
+
     return month_list
 
 def plot_year(rows_ob_list, target_year):
-    # sales_list = sales_from_ob(rows_ob_list)
-    # dates_list = dates_from_ob(rows_ob_list)
-    # # print(len(sales_list) == len(dates_list))
-    # length = len(dates_list)
-    # sale_2016 = []
-    # date_2016 = []
-    #
-    # for i in range(0, length):
-    #     if "2016" in dates_list[i]:
-    #         date_2016.append(dates_list[i])
-    #         sale_2016.append(sales_list[i])
-    #
     month_list = get_monthly_sale(rows_ob_list, target_year)
     year_list = []
     year = ["Jan-", "Feb-", "Mar-", "Apr-", "May-", "Jun-", "Jul-", "Aug-", "Sep-", "Oct-", "Nov-", "Dec-"]
@@ -175,7 +156,12 @@ def plot_year(rows_ob_list, target_year):
     plt.show()
 
 def plot_min_averge_max(rows_ob_list):
-    return 0
+    year = ["2016", "2017", "2018"]
+
+    df = pd.DataFrame([['g1','c1',10],['g1','c2',12],['g1','c3',13],['g2','c1',8],
+                   ['g2','c2',10],['g2','c3',12]],columns=['group','column','val'])
+    df.pivot("column", "group", "val").plot(kind='bar')
+    plt.show()
 
 def main():
     with open('sales.json') as json_file:
@@ -192,15 +178,15 @@ def main():
     """
     This is the codes section showing the yearly plots
     """
-    year = ["2016", "2017", "2018"]
-    for i in range(0, len(year)):
-        plot_year(res, year[i])
+    # year = ["2016", "2017", "2018"]
+    # for i in range(0, len(year)):
+    #     plot_year(res, year[i])
 
     """
     This is the codes showing the min, average and max monthly
     sales for each year
     """
-    # plot_min_averge_max(res)
+    plot_min_averge_max(res)
 
 
 main()
