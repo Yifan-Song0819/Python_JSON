@@ -104,20 +104,12 @@ def plot_test(rows_ob_list):
     plt.ylabel('Thousands of NZDs')
     plt.xlabel("x1")
     plt.show()
+"""
+This function is used to get the monthly sales.
+It returns a list.
+"""
 
-def plot_year(rows_ob_list, target_year):
-    # sales_list = sales_from_ob(rows_ob_list)
-    # dates_list = dates_from_ob(rows_ob_list)
-    # # print(len(sales_list) == len(dates_list))
-    # length = len(dates_list)
-    # sale_2016 = []
-    # date_2016 = []
-    #
-    # for i in range(0, length):
-    #     if "2016" in dates_list[i]:
-    #         date_2016.append(dates_list[i])
-    #         sale_2016.append(sales_list[i])
-    #
+def get_monthly_sale(rows_ob_list, target_year):
     month_list = [0,0,0,0,0,0,0,0,0,0,0,0]
     for i in range(0, len(rows_ob_list)):
         if "01-" + target_year in rows_ob_list[i].date:
@@ -147,13 +139,28 @@ def plot_year(rows_ob_list, target_year):
 
     for i in range(0, len(month_list)):
         month_list[i] = round(month_list[i], 2)
+    return month_list
 
+def plot_year(rows_ob_list, target_year):
+    # sales_list = sales_from_ob(rows_ob_list)
+    # dates_list = dates_from_ob(rows_ob_list)
+    # # print(len(sales_list) == len(dates_list))
+    # length = len(dates_list)
+    # sale_2016 = []
+    # date_2016 = []
+    #
+    # for i in range(0, length):
+    #     if "2016" in dates_list[i]:
+    #         date_2016.append(dates_list[i])
+    #         sale_2016.append(sales_list[i])
+    #
+    month_list = get_monthly_sale(rows_ob_list, target_year)
     year_list = []
     year = ["Jan-", "Feb-", "Mar-", "Apr-", "May-", "Jun-", "Jul-", "Aug-", "Sep-", "Oct-", "Nov-", "Dec-"]
     for i in range(0, 12):
         year_list.append(year[i] + target_year)
     # print(year_list)
-    print(month_list)
+    # print(month_list)
 
     index = np.arange(len(year_list))
     plt.bar(index, month_list)
@@ -167,6 +174,8 @@ def plot_year(rows_ob_list, target_year):
     plt.title('Sales data for each month in ' + target_year)
     plt.show()
 
+def plot_min_averge_max(rows_ob_list):
+    return 0
 
 def main():
     with open('sales.json') as json_file:
@@ -180,9 +189,18 @@ def main():
     res = to_oop(date_list, sale_list) # all rows ob now
 
     # plot_test(res)
+    """
+    This is the codes section showing the yearly plots
+    """
     year = ["2016", "2017", "2018"]
     for i in range(0, len(year)):
         plot_year(res, year[i])
+
+    """
+    This is the codes showing the min, average and max monthly
+    sales for each year
+    """
+    # plot_min_averge_max(res)
 
 
 main()
