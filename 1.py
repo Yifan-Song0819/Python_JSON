@@ -158,10 +158,24 @@ def plot_year(rows_ob_list, target_year):
 def plot_min_averge_max(rows_ob_list):
     year = ["2016", "2017", "2018"]
 
-    df = pd.DataFrame([['g1','c1',10],['g1','c2',12],['g1','c3',13],['g2','c1',8],
-                   ['g2','c2',10],['g2','c3',12]],columns=['group','column','val'])
-    df.pivot("column", "group", "val").plot(kind='bar')
+    # df = pd.DataFrame([['g1','c1',10],['g1','c2',12],['g1','c3',13],['g2','c1',8],
+    #                ['g2','c2',10],['g2','c3',12]],columns=['group','column','val'])
+    # df.pivot("column", "group", "val").plot(kind='bar')
+
+
+    # average, min, max
+    groups = [[23,135,10], [123,500,50]]
+    group_labels = ['views', 'orders']
+    # Convert data to pandas DataFrame.
+    df = pd.DataFrame(groups, index=group_labels).T
+    # Plot.
+
+    ax = pd.concat([df.mean().rename('average'), df.min().rename('min'),
+         df.max().rename('max')], axis=1).plot.bar()
+    ax.set_ylabel("y label")
     plt.show()
+
+
 
 def main():
     with open('sales.json') as json_file:
