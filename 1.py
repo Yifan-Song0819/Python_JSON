@@ -4,6 +4,15 @@ import matplotlib.pyplot as plt
 import matplotlib.dates as the_dates
 from Row import Row
 
+"""
+75.15
+73.52999999999997
+58.059999999999995
+"""
+
+
+
+
 
 """
 remove_null is used to delete the null value
@@ -81,6 +90,7 @@ def dates_from_ob(ob_list):
         dates_list.append(ob_list[i].date)
     return dates_list
 
+
 """
 just a plot test
 """
@@ -94,7 +104,7 @@ def plot_test(rows_ob_list):
     plt.xlabel("x1")
     plt.show()
 
-def plot_2016(rows_ob_list):
+def plot_year(rows_ob_list, target_year):
     # sales_list = sales_from_ob(rows_ob_list)
     # dates_list = dates_from_ob(rows_ob_list)
     # # print(len(sales_list) == len(dates_list))
@@ -107,10 +117,38 @@ def plot_2016(rows_ob_list):
     #         date_2016.append(dates_list[i])
     #         sale_2016.append(sales_list[i])
     #
-    # print(sale_2016)
-    # print(date_2016)
+    month_list = [0,0,0,0,0,0,0,0,0,0,0,0]
+    for i in range(0, len(rows_ob_list)):
+        if "01-" + target_year in rows_ob_list[i].date:
+            month_list[0] += rows_ob_list[i].sale
+        elif "02-" + target_year in rows_ob_list[i].date:
+            month_list[1] += rows_ob_list[i].sale
+        elif "03-" + target_year in rows_ob_list[i].date:
+            month_list[2] += rows_ob_list[i].sale
+        elif "04-" + target_year in rows_ob_list[i].date:
+            month_list[3] += rows_ob_list[i].sale
+        elif "05-" + target_year in rows_ob_list[i].date:
+            month_list[4] += rows_ob_list[i].sale
+        elif "06-" + target_year in rows_ob_list[i].date:
+            month_list[5] += rows_ob_list[i].sale
+        elif "07-" + target_year in rows_ob_list[i].date:
+            month_list[6] += rows_ob_list[i].sale
+        elif "08-" + target_year in rows_ob_list[i].date:
+            month_list[7] += rows_ob_list[i].sale
+        elif "09-" + target_year in rows_ob_list[i].date:
+            month_list[8] += rows_ob_list[i].sale
+        elif "10-" + target_year in rows_ob_list[i].date:
+            month_list[9] += rows_ob_list[i].sale
+        elif "11-" + target_year in rows_ob_list[i].date:
+            month_list[10] += rows_ob_list[i].sale
+        elif "12-" + target_year in rows_ob_list[i].date:
+            month_list[11] += rows_ob_list[i].sale
 
-    
+    for i in range(0, len(month_list)):
+        month_list[i] = round(month_list[i], 2)
+    print(month_list)
+
+
 
 
 def main():
@@ -125,6 +163,9 @@ def main():
     res = to_oop(date_list, sale_list) # all rows ob now
 
     # plot_test(res)
-    plot_2016(res)
+    year = ["2016", "2017", "2018"]
+    for i in range(0, len(year)):
+        plot_year(res, year[i])
+
 
 main()
