@@ -1,5 +1,7 @@
 import json
+import datetime
 import matplotlib.pyplot as plt
+import matplotlib.dates as the_dates
 from Row import Row
 
 
@@ -104,6 +106,7 @@ def plot_2016(rows_ob_list):
         if "2016" in dates_list[i]:
             date_2016.append(dates_list[i])
             sale_2016.append(sales_list[i])
+    
     # print(sale_2016)
     # print(date_2016)
 
