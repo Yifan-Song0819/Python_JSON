@@ -152,19 +152,20 @@ def plot_year(rows_ob_list, target_year):
     year = ["Jan-", "Feb-", "Mar-", "Apr-", "May-", "Jun-", "Jul-", "Aug-", "Sep-", "Oct-", "Nov-", "Dec-"]
     for i in range(0, 12):
         year_list.append(year[i] + target_year)
-    print(year_list)
+    # print(year_list)
+    print(month_list)
 
     index = np.arange(len(year_list))
     plt.bar(index, month_list)
-    plt.xlabel('Genre', fontsize=5)
-    plt.ylabel('No of Movies', fontsize=5)
-    plt.xticks(index, month_list, fontsize=5, rotation=30)
-    plt.title('Market Share for Each Genre 1995-2017')
+    # here x and y is coordinates, last 1 is the value shown
+    for i in range(0, len(month_list)):
+        plt.text(i - 0.4,  month_list[i] + 1, str(month_list[i]), fontsize = 8)
+
+    plt.xlabel('Month', fontsize=10)
+    plt.ylabel('Thousands of NZD', fontsize=10)
+    plt.xticks(index, year_list, fontsize=5, rotation=30)
+    plt.title('Sales data for each month in ' + target_year)
     plt.show()
-
-
-
-
 
 
 def main():
