@@ -3,6 +3,7 @@ import datetime
 import matplotlib.pyplot as plt
 import matplotlib.dates as the_dates
 from Row import Row
+import numpy as np
 
 """
 75.15
@@ -146,7 +147,22 @@ def plot_year(rows_ob_list, target_year):
 
     for i in range(0, len(month_list)):
         month_list[i] = round(month_list[i], 2)
-    print(month_list)
+
+    year_list = []
+    year = ["Jan-", "Feb-", "Mar-", "Apr-", "May-", "Jun-", "Jul-", "Aug-", "Sep-", "Oct-", "Nov-", "Dec-"]
+    for i in range(0, 12):
+        year_list.append(year[i] + target_year)
+    print(year_list)
+
+    index = np.arange(len(year_list))
+    plt.bar(index, month_list)
+    plt.xlabel('Genre', fontsize=5)
+    plt.ylabel('No of Movies', fontsize=5)
+    plt.xticks(index, month_list, fontsize=5, rotation=30)
+    plt.title('Market Share for Each Genre 1995-2017')
+    plt.show()
+
+
 
 
 
