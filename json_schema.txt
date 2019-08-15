@@ -1,0 +1,21 @@
+{
+   "$schema": "http://json-schema.org/draft-04/schema#",
+   "title": "sales",
+   "description": "A daily sale from a local pharmacy",
+   "type": "object",
+
+   "properties": {
+
+      "date": {
+         "description": "The date that represents the day",
+         "type": "string"
+      },
+
+      "sale": {
+         "description": "The sale of that day (in kNZD)",
+         "type": "integer"
+      }
+   },
+
+   "required": ["date", "sale"]
+}
