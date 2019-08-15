@@ -1,5 +1,22 @@
 # Python_JSON
 
+Hi,
+
+Run the program:
+
+1 Clone the whole project and make sure all files are in the same folder.
+
+2 Make sure you have had all the libraries installed.
+
+3 type CMI "python3 main.py"
+
+4 result images have been saved in the folder "images"
+
+
+
+
+
+
 I randomly create sales.json file.
 
 The sales.json describes daily sales from a local pharmacy from 01/01/2016 to 31/12/2018.
