@@ -2,7 +2,7 @@
 
 Hi,
 
-Run the program:
+How to Run the program:
 
 1 Clone the whole project and make sure all files are in the same folder.
 
@@ -23,7 +23,7 @@ There are 1000 pieces of data, but there also exists duplicate dates and null da
 would be removed. Only 657 data are left when plotting the data. That makes sense in three years. We remove weekends and
 public holidays, there are only around 200+ days every year.
 
-
+===========================================================================
 
 
 Please link to a python git repo that performs filtering on time-series data and outputs a plot of the filtered and unfiltered data, the minimum, mean and average of the data. Include a JSON schema for the data model in the source code. Show images of the above plots.
