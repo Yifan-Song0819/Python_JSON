@@ -161,7 +161,6 @@ def plot_min_averge_max(rows_ob_list):
     # df = pd.DataFrame([['g1','c1',10],['g1','c2',12],['g1','c3',13],['g2','c1',8],
     #                ['g2','c2',10],['g2','c3',12]],columns=['group','column','val'])
     # df.pivot("column", "group", "val").plot(kind='bar')
-
     # average, min, max
     groups = [[50,150,250], [100,200,300], [20,35,60]]
     group_labels = ['2016', '2017', '2018']
@@ -171,6 +170,17 @@ def plot_min_averge_max(rows_ob_list):
     ax = pd.concat([df.min().rename('min'),df.mean().rename('average'),
          df.max().rename('max')], axis=1).plot.bar()
     ax.set_ylabel("Thousands of NZD")
+    plt.title('Sales data for each year')
+
+    for i in range(0, len(groups)):
+        for j in range(0, len(groups[i])):
+            if j == 0:
+                # print(str(groups[i][j]))
+                plt.text(i-0.22,  groups[i][j] + 3, str(groups[i][j]), fontsize = 10)
+            elif j == 1:
+                plt.text(i-0.09,  groups[i][j] + 2, str(groups[i][j]), fontsize = 10)
+            else:
+                plt.text(i+0.09,  groups[i][j], str(groups[i][j]), fontsize = 10)
     plt.show()
 
 
