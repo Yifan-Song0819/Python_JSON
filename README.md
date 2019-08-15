@@ -12,10 +12,7 @@ Run the program:
 
 4 result images have been saved in the folder "images"
 
-
-
-
-
+===========================================================================
 
 I randomly create sales.json file.
 
