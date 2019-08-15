@@ -155,7 +155,7 @@ def plot_year(rows_ob_list, target_year):
     plt.title('Sales data for each month in ' + target_year)
     plt.show()
 
-def plot_min_averge_max(rows_ob_list):
+def plot_test_min_averge_max():
     year = ["2016", "2017", "2018"]
 
     # df = pd.DataFrame([['g1','c1',10],['g1','c2',12],['g1','c3',13],['g2','c1',8],
@@ -208,7 +208,7 @@ def main():
     This is the codes showing the min, average and max monthly
     sales for each year
     """
-    plot_min_averge_max(res)
+    plot_test_min_averge_max()
 
 
 main()
