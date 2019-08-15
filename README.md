@@ -4,7 +4,7 @@ I randomly create sales.json file.
 
 The sales.json describes daily sales from a local pharmacy from 01/01/2016 to 31/12/2018.
 
-There are 1000 piece of datas, but there also exists duplicate dates and null data. Therefore, these data
+There are 1000 pieces of data, but there also exists duplicate dates and null data. Therefore, these data
 
 would be removed. Only 657 data are left when plotting the data. That makes sense in three years. We remove weekends and
 public holidays, there are only around 200+ days every year.
@@ -43,8 +43,5 @@ Please link to a python git repo that performs filtering on time-series data and
 
         so we need to handle this part when doing calculation
 
-    (2)
-
 5. how to show the plots?
-
-6. do i need tkinter?
+    numpy, pandas
