@@ -5,7 +5,7 @@ import matplotlib.dates as the_dates
 from Row import Row
 import pandas as pd
 import numpy as np
-
+from statistics import mean, median
 
 """
 remove_null is used to delete the null value
@@ -183,6 +183,20 @@ def plot_test_min_averge_max():
                 plt.text(i+0.09,  groups[i][j], str(groups[i][j]), fontsize = 10)
     plt.show()
 
+def real_min_average_max(res):
+    year = ['2016', '2017', '2018']
+    month_sales = []
+    for i in range(0, len(year)):
+        month_sales.append(get_monthly_sale(res, year[i]))
+    # print(month_sales)
+    plot_list = []
+    for i in range(0, len(month_sales)):
+        tem_list = [0, 0, 0]
+        tem_list[0] = round(min(month_sales[i]), 2)
+        tem_list[1] = round(mean(month_sales[i]), 2)
+        tem_list[2] = round(max(month_sales[i]), 2)
+        plot_list.append(tem_list)
+    print(plot_list)
 
 
 def main():
@@ -205,10 +219,12 @@ def main():
     #     plot_year(res, year[i])
 
     """
-    This is the codes showing the min, average and max monthly
+    This is a test the codes showing the min, average and max monthly
     sales for each year
     """
-    plot_test_min_averge_max()
+    # plot_test_min_averge_max()
+
+    real_min_average_max(res)
 
 
 main()
