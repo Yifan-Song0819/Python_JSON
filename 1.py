@@ -196,7 +196,28 @@ def real_min_average_max(res):
         tem_list[1] = round(mean(month_sales[i]), 2)
         tem_list[2] = round(max(month_sales[i]), 2)
         plot_list.append(tem_list)
-    print(plot_list)
+    # print(plot_list)
+
+
+    group_labels = ['2016', '2017', '2018']
+    # Convert data to pandas DataFrame.
+    df = pd.DataFrame(plot_list, index=group_labels).T
+    # Plot.
+    ax = pd.concat([df.min().rename('min'),df.mean().rename('average'),
+         df.max().rename('max')], axis=1).plot.bar()
+    ax.set_ylabel("Thousands of NZD", fontsize = 15)
+    plt.title('Monthly Sales data for each year', fontsize = 20)
+
+    for i in range(0, len(plot_list)):
+        for j in range(0, len(plot_list[i])):
+            if j == 0:
+                #
+                plt.text(i-0.25,  plot_list[i][j] + 3, str(plot_list[i][j]), fontsize = 10)
+            elif j == 1:
+                plt.text(i-0.07,  plot_list[i][j] + 1, str(plot_list[i][j]), fontsize = 10)
+            else:
+                plt.text(i+0.09,  plot_list[i][j], str(plot_list[i][j]), fontsize = 10)
+    plt.show()
 
 
 def main():
@@ -214,9 +235,9 @@ def main():
     """
     This is the codes section showing the yearly plots
     """
-    # year = ["2016", "2017", "2018"]
-    # for i in range(0, len(year)):
-    #     plot_year(res, year[i])
+    year = ["2016", "2017", "2018"]
+    for i in range(0, len(year)):
+        plot_year(res, year[i])
 
     """
     This is a test the codes showing the min, average and max monthly
